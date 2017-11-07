@@ -8,7 +8,7 @@
     });
 
     /* --------------------------------- Event Registration -------------------------------- */
-    $('#search-first-name').on('keyup', findByName);
+    $('#search-first-name', '#search-last-name').on('keyup', findByName);
     $('.help-btn').on('click', function() {
         alert("Employee Directory v3.4");
     });
@@ -32,8 +32,6 @@
             else{
              $('.employee-list').empty();
             }
-
-
             }
         });
     }
