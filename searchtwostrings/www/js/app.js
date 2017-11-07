@@ -8,13 +8,16 @@
     });
 
     /* --------------------------------- Event Registration -------------------------------- */
-    $('.search-key').on('keyup', findByName);
+    $('.search-first-name').on('keyup', findByName);
     $('.help-btn').on('click', function() {
         alert("Employee Directory v3.4");
     });
 
+
     /* ---------------------------------- Local Functions ---------------------------------- */
     function findByName() {
+        var checkFirstname = $('.search-first-name').val().trim():
+        var checkLastname = $('.search-last-name').val().trim();
         service.findByName($('.search-key').val()).done(function (employees) {
             var l = employees.length;
             var e;
