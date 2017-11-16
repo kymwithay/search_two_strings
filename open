@@ -1,0 +1,26 @@
+Kymberlee Hill
+@02752656
+11/7/2017
+
+Assignment 4
+
+
+Public Repository:
+https://github.com/kymwithay/search_two_strings
+
+How to run my program:
+
+1)Download or clone my repository.
+To run on the the browser:
+nagivate to www/index.html and open up the browser or from the command line
+run cordova run browser
+
+To build the project in the searchtwostrings/platforms/android folder and run it on an Android device connected to your computer using a USB cable, type:
+cordova run android
+
+To build the project in the searchtwostrings/platforms/android folder and run it in the Android emulator, type:
+cordova emulate android
+
+Challenges I faced:
+
+Working with the Jquery Library: I have had experience working with Javascript and its different frameworks, however this time I had to go back and review some of the basics such a what are selectors, what do they do? I review things regarding should I use a input class attribute versus an input id attribute for the selector. All of this
