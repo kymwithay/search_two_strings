@@ -20,7 +20,7 @@
         var checkFirstname = $('#search-first-name').val().trim();
         var checkLastname = $('#search-last-name').val().trim();
 
-        service.findByName(checkFirstname + " " + checkLastname).done(function (employees) {
+        service.findByName(checkFirstname + checkLastname).done(function (employees) {
             var l = employees.length;
             var e;
             $('.employee-list').empty();
