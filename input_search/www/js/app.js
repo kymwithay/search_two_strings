@@ -46,7 +46,7 @@
          '<input id= "search-first-name" type="search" placeholder="Enter First Name"/>' +
          '<input id= "search-last-name" type="search" placeholder="Enter Last Name"/>' +
          '<ul class= "employee-list"></ul>';
-          $('body').html(html);
+          $('#app').html(html);
           $('#search-first-name, #search-last-name').on('keyup', findByName);
           }
 
