@@ -2,6 +2,10 @@
 (function () {
 
     /* ---------------------------------- Local Variables ---------------------------------- */
+
+    var homeTpl = Handlebars.compile($("#home-tpl").html());
+    var employeeListTpl = Handlebars.compile($("#employee-list-tpl").html());
+
     var service = new EmployeeService();
     service.initialize().done(function () {
         renderHomeView();
@@ -17,6 +21,22 @@
 //    });
 
     /* ---------------------------------- Local Functions ---------------------------------- */
+
+    function renderHomeView() {
+        var html =
+        '<p><button id="help-btn">Help</button></p>'+'<h1>Directory</h1>' +
+         '<input id= "search-first-name" type="search" placeholder="Enter First Name"/>' +
+         '<input id= "search-last-name" type="search" placeholder="Enter Last Name"/>' +
+         '<ul class= "employee-list"></ul>';
+          // $('#app').html(html);
+
+          $('body').html(homeTpl());
+          $('#search-first-name, #search-last-name').on('keyup', findByName);
+          $('#help-btn').on('click', function() {
+            alert("Employee Directory v3.4");
+          });
+        }
+
     function findByName() {
         // service.findByName($('.search-key').val()).done(function (employees) {
         //service.findByName($.trim($('.search-first-name').val()),$.trim($('.search-last-name').val())).done(function (employees) {
@@ -37,17 +57,8 @@
               console.log("else part");
               $('.employee-list').empty();
             }
+             $('.content').html( employeeListTpl(employees));
         });
     }
-
-    function renderHomeView() {
-        var html =
-        '<p><button class="help-btn">Help</button></p>'+'<h1>Directory</h1>' +
-         '<input id= "search-first-name" type="search" placeholder="Enter First Name"/>' +
-         '<input id= "search-last-name" type="search" placeholder="Enter Last Name"/>' +
-         '<ul class= "employee-list"></ul>';
-          $('#app').html(html);
-          $('#search-first-name, #search-last-name').on('keyup', findByName);
-          }
 
 }());

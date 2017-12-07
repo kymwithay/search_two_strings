@@ -7,8 +7,8 @@
      <link href="assets/css/styles.css" rel="stylesheet">
 </head>
 <body>
-  <div id='app'>
-  </div>
+  <!-- <div id='app'>
+  </div> -->
 
 <!--<p><button class="help-btn">Help</button></p>-->
 <!--<div class='header'><h1>Directory</h1></div>-->
@@ -31,6 +31,20 @@
     <div class="content"></div>
 </script>
 
+<script id="employee-list-tpl" type="text/template">
+  <ul class="table-view">
+    {{#each this}}
+    <li class="table-view-cell media">
+      <a href="#employees/{{ id }}">
+        <img class="media-object pull-left"src="assets/pics/{{pic}}">
+        <div class="media-body">
+          {{title}} {{ lastName}} {{ firstName}}
+        </div>
+      </a>
+    </li>
+    {{/each}}
+  </ul>
+</script>
 
 <script src = "cordova.js"></script>
 <script src="lib/handlebars.js"></script> <!--added at 1:02am -->
