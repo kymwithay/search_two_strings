@@ -7,8 +7,7 @@
      <link href="assets/css/styles.css" rel="stylesheet">
 </head>
 <body>
-  <!-- <div id='app'>
-  </div> -->
+
 
 <!--<p><button class="help-btn">Help</button></p>-->
 <!--<div class='header'><h1>Directory</h1></div>-->
@@ -17,19 +16,18 @@
     <!--<input id='search-last-name' type="search" placeholder="Enter Last Name"/>-->
     <!--<ul class='employee-list'></ul>-->
 <!--</div>-->
+<div class='app'>
+  <script id="home-tpl" type="text/template">
+    <header class="bar bar-nav">
+      <h1 class="title">Directory</h1>
 
-<script id="home-tpl" type="text/template">
-  <header class="bar bar-nav">
-
-    <h1 class="title">Directory</h1>
-
-	</header>
-  <div class="bar bar-standard bar-header-secondary">
-    <input class='search-first-name' type="search"/>
-    <input class='search-last-name' type="search"/>
-  </div>
+    </header>
+    <div class="bar bar-standard bar-header-secondary">
+      <input class='search-first-name' type="search"/>
+      <input class='search-last-name' type="search"/>
+    </div>
     <div class="content"></div>
-</script>
+  </script>
 
 <script id="employee-list-tpl" type="text/template">
   <ul class="table-view">
@@ -45,6 +43,7 @@
     {{/each}}
   </ul>
 </script>
+</div>
 
 <script src = "cordova.js"></script>
 <script src="lib/handlebars.js"></script> <!--added at 1:02am -->

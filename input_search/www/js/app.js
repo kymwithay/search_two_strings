@@ -43,30 +43,39 @@
     function findByName() {
         // service.findByName($('.search-key').val()).done(function (employees) {
         //service.findByName($.trim($('.search-first-name').val()),$.trim($('.search-last-name').val())).done(function (employees) {
-        var checkFirstname = $('#search-first-name')
+        var checkFirstname = $('.search-first-name')
         .val()
         .trim();
 
-        var checkLastname = $('#search-last-name')
+        var checkLastname = $('.search-last-name')
         .val()
         .trim();
 
-        service.findByName(checkFirstname + checkLastname).done(function (employees) {
-            var l = employees.length;
-            var e;
-            if (checkFirstname.length >= 2 || checkLastname.length >= 2){
-              $('.employee-list').empty();
-              for (var i = 0; i < l; i++) {
-                e = employees[i];
-                $('.employee-list').append('<li><a href="#employees/' + e.id + '">' + e.firstName + ' ' + e.lastName + '</a></li>');
-            }
-            }
-            else{
-              console.log("else part");
-              $('.employee-list').empty();
-            }
-             $('.content').html( employeeListTpl(employees));
-        });
-    }
-
-}());
+        if (checkFirstname.length >= 2 || checkLastname.length >= 2){
+          service
+            .findByName(checkFirstname + checkLastname)
+            .done(function (employees) {
+              var l = employees.length;
+              var e;
+              $('.content').html(employeeListTpl(employees));
+          });
+        }
+        else {
+          $('.content').empty();
+        }
+      }
+    /*
+    *  WITH TEMPLATES THE FOLLOWING IS NO LONGER NECESSARY
+    */
+            //   $('.employee-list').empty();
+            //   for (var i = 0; i < l; i++) {
+            //     e = employees[i];
+            //     $('.employee-list').append('<li><a href="#employees/' + e.id + '">' + e.firstName + ' ' + e.lastName + '</a></li>');
+            // }
+            // }
+            // else{
+            //   console.log("else part");
+            //   $('.employee-list').empty();
+            // }
+}
+());
