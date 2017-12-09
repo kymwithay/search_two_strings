@@ -7,7 +7,9 @@
     var employeeListTpl = Handlebars.compile($("#employee-list-tpl").html());
 
     var service = new EmployeeService();
-    service.initialize().done(function () {
+    service
+    .initialize()
+    .done(function () {
         renderHomeView();
         console.log("Service initialized");
     });
@@ -23,15 +25,16 @@
     /* ---------------------------------- Local Functions ---------------------------------- */
 
     function renderHomeView() {
-        var html =
-        '<p><button id="help-btn">Help</button></p>'+'<h1>Directory</h1>' +
+        var html = '<p><button id="help-btn">Help</button></p>'+'<h1>Directory</h1>' +
          '<input id= "search-first-name" type="search" placeholder="Enter First Name"/>' +
          '<input id= "search-last-name" type="search" placeholder="Enter Last Name"/>' +
          '<ul class= "employee-list"></ul>';
           // $('#app').html(html);
 
-          $('body').html(homeTpl());
-          $('#search-first-name, #search-last-name').on('keyup', findByName);
+          $('body').prepend('<div id="app"></div>');
+          $('#app').html(homeTpl());
+
+          $('.search-first-name, .search-last-name').on('keyup', findByName);
           $('#help-btn').on('click', function() {
             alert("Employee Directory v3.4");
           });
@@ -40,8 +43,13 @@
     function findByName() {
         // service.findByName($('.search-key').val()).done(function (employees) {
         //service.findByName($.trim($('.search-first-name').val()),$.trim($('.search-last-name').val())).done(function (employees) {
-        var checkFirstname = $('#search-first-name').val().trim();
-        var checkLastname = $('#search-last-name').val().trim();
+        var checkFirstname = $('#search-first-name')
+        .val()
+        .trim();
+
+        var checkLastname = $('#search-last-name')
+        .val()
+        .trim();
 
         service.findByName(checkFirstname + checkLastname).done(function (employees) {
             var l = employees.length;
