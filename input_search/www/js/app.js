@@ -20,7 +20,11 @@
                 });
 
             router.addRoute('name', function () {
-                  slider.slidePage(new FindByNameView(service).render().$el);
+                slider.slidePage(new FindByNameView(service).render().$el);
+            });
+
+            router.addRoute('dept', function () {
+                slider.slidePage(new FindByDeptView(service).render().$el);
             });
 
             router.addRoute('employees/:id', function (id) {
@@ -32,5 +36,7 @@
             });
 
             router.start();
-          }
+
+        });
+
 }());
