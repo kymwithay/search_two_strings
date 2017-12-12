@@ -1,4 +1,4 @@
-var FindByDeptView = function (service) {
++var FindByDeptView = function (service) {
     var employeeListView;
 
     this.initialize = function () {
